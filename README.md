@@ -22,7 +22,7 @@ As a UI/UX Designer, I focused on creating a visual identity that reflects the m
 
 ## 🚀 Live Demo
 You can explore the live project here:
-👉 [View Live Demo](https://kinnyeinchandw.github.io/Spirit_Saga/)
+👉 [View Live Demo]( https://khinnyeinchandw.github.io/Spirit_Saga/)
 
 ## 📸 Preview
 ![Spirit Saga Preview](Images/Screenshot.png)
