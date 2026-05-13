@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Community - Spirit Saga</title>
+    <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+    />
+    <link
+      href="http://fonts.googleapis.com/css?family=Cookie"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+    />
+    <link rel="icon" href="Images/SSIcon.png" type="image/jpg" />
+    <link rel="stylesheet" href="Style.css" />
+  </head>
+  <body>
+    <!-- nav-bar go here -->
+    <nav class="navbar">
+      <div class="mobile-header">
+        <div class="logo">
+          <a href="index.html"
+            ><img src="Images/Spirit_Saga_Logo.png" alt="logo"
+          /></a>
+        </div>
+        <div class="menu-toggle">&#9776;</div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="Search.html">Search</a></li>
+        <li><a href="Community.html">Community</a></li>
+        <li><a href="About.html">About</a></li>
+      </ul>
+    </nav>
+
+    <!-- post-bar content -->
+    <div class="center-container">
+      <div class="post-section">
+        <div class="forcelogin" id="forcelogin">
+          <div class="icon-text">
+            <p>You need to Login to Post Something</p>
+          </div>
+          <button class="login-button">Login</button>
+        </div>
+
+        <!-- Login -->
+        <div class="loginshowup" id="loginshowup">
+          <div class="wrapper">
+            <div class="title-text">
+              <div class="title login">Login Form</div>
+              <div class="title signup">Signup Form</div>
+            </div>
+            <div class="form-container">
+              <div class="slide-controls">
+                <input type="radio" name="slide" id="login" checked />
+                <input type="radio" name="slide" id="signup" />
+                <label for="login" class="slide login">Login</label>
+                <label for="signup" class="slide signup">Signup</label>
+                <div class="slider-tab"></div>
+              </div>
+              <div class="form-inner">
+                <form action="#" name="survery" class="login">
+                  <div class="field">
+                    <input
+                      type="text"
+                      placeholder="User Name"
+                      id="loginname"
+                      required
+                    />
+                  </div>
+                  <div class="field">
+                    <input
+                      type="password"
+                      placeholder="Password"
+                      id="loginpassword"
+                      required
+                    />
+                  </div>
+                  <div class="field btn">
+                    <div class="btn-layer"></div>
+                    <input type="submit" value="Login" />
+                  </div>
+                  <div class="signup-link">
+                    Not a member? <a href="#">Signup now</a>
+                  </div>
+                </form>
+                <form action="#" class="signup">
+                  <div class="field">
+                    <input
+                      type="text"
+                      placeholder="User Name"
+                      required
+                      onChange="checkEmail()"
+                    />
+                  </div>
+                  <div class="field">
+                    <input type="password" placeholder="Password" required />
+                  </div>
+                  <div class="field">
+                    <input
+                      type="password"
+                      placeholder="Confirm password"
+                      required
+                    />
+                  </div>
+                  <div class="field btn">
+                    <div class="btn-layer"></div>
+                    <input type="submit" value="Signup" />
+                    <button id="loginback">Back</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="post-bar" id="post-bar">
+          <div class="icon-text"><p>Create Your Own Post</p></div>
+          <textarea
+            class="input-box"
+            id="caption"
+            placeholder="Write captions"
+          ></textarea>
+          <div>
+            <button class="upload-button" for="photo">Upload Photo</button>
+            <button class="remove-button" id="removePhoto">Remove Photo</button>
+            <button class="send-button" id="sendbtn">Send</button>
+            <input
+              id="photoUpload"
+              type="file"
+              accept="image/*"
+              style="display: none"
+            />
+          </div>
+          <div class="chosen-photo" id="chosenPhoto"></div>
+        </div>
+      </div>
+
+      <!--Hidden Post-->
+      <div class="hidden-container">
+        <div class="post-header">
+          <img
+            class="profile-picture"
+            src="Images/profile-default.png"
+            alt="Profile Picture"
+          />
+          <div class="username">You</div>
+          <div class="timestamp">Now</div>
+        </div>
+        <div class="post-content">
+          <div class="expandable-text">
+            <p id="intext"></p>
+          </div>
+          <p id="hidden" class="see-more hidde">See more</p>
+          <img id="inimage" src="" alt="Post Image" />
+        </div>
+        <div class="post-actions">
+          <div class="like-button">
+            <i class="material-icons">favorite</i> Like
+          </div>
+          <div class="comment-button">
+            <button class="postbutton show-comments">
+              <i class="material-icons">comment</i> Comment
+            </button>
+          </div>
+          <div class="share-button">
+            <button class="postbutton share-post">
+              <i class="material-icons">share</i> Share
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="comments-container" style="display: none">
+        <div class="comment-input">
+          <input
+            type="text"
+            class="new-comment"
+            placeholder="Add a comment..."
+          />
+          <button class="add-comment">Send</button>
+        </div>
+      </div>
+      <div class="popup">
+        <div class="share-head">
+          <span>Share Media</span>
+          <div class="close"><i class="fas fa-times"></i></div>
+        </div>
+        <div class="share-content">
+          <p>Share the post via</p>
+          <ul class="icons">
+            <a href="https://www.facebook.com"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="https://www.twitter.com"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="https://www.whatsapp.com"
+              ><i class="fab fa-whatsapp"></i
+            ></a>
+            <a href="https://www.telegram.org"
+              ><i class="fab fa-telegram"></i
+            ></a>
+          </ul>
+          <p>Or copy the link</p>
+          <div class="field">
+            <i class="fas fa-link"></i>
+            <input type="text" readonly value="spiritsaga.com/example" />
+            <button>Copy</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- First post content -->
+      <div class="post-container">
+        <div class="post-header">
+          <img
+            class="profile-picture"
+            src="Images/pf10.jpg"
+            alt="Profile Picture"
+          />
+          <div class="username">Aye Mya Hsu Mon</div>
+          <div class="timestamp">2 hours ago</div>
+        </div>
+        <div class="post-content">
+          <div class="expandable-text">
+            <p>
+              ကဲ.....ပုဂံ <br />မိသားစုလိုက်ပုဂံကို
+              ဘုရားဖူးထွက်ကြတယ်။၇ညအိပ်၈ရက်လောက်ကြာမှာဆိုတော့ ဘုန်းကြီးကျောင်းပဲ
+              တည်းတယ်။ရွှေစည်းခုံ ဘုရား အနောက်ဘက်စောင်းတန်း တည့်တည့်က
+              နတ်ထောင့်ကျောင်းဆိုတဲ့ ဘုန်းကြီးကျောင်း ဟောခန်းလို
+              လူနေဆောင်တစ်ဆောင် ပေးတယ်။ဘုရားဖူးတာနည်းနည်း
+              ဖဲရိုက်တာများများပေါ့နော် ကိုယ့်မိသားစုနဲ့အသိတွေချည်းပဲဆိုတော့
+              အဖေကတော့ ဝါသနာမပါဘူး ။ မနက်ပိုင်း ဘုရားတွေလိုက်ဖူးပြီးရင်
+              ဘုန်းကြီးကျောင်းထဲပဲ နေကြတာများတယ်။အဖေပဲ ဘုန်းကြီးကျောင်းရှေ့ က
+              ထမင်းဆိုင်လေးမှာထွက်ထိုင်တယ်။ အဖေ့ရဲအသည်းကြော်ပဲလှော် ကိုယ်ကတော့
+              အဖေ့နောက်ပဲလိုက်တယ်။ ကဲ ဇာတ်လမ်း စပြီ........ ၅ရက်မြောက်နေ့မှာ
+              အဖေက လမ်းထောင့်ချိုးက
+              လက်ဖက်ရည်ဆိုင်သွားထိုင်ကြမယ်တဲ့။ထမင်းစားသောက်ပြီး ည၈နာရီ
+              ဘုန်းကြီးကျောင်းကအထွက် လမ်းအချိုးတိုင်းသွားရင် ပိုဝေးလို
+              ထမင်းဆိုင်လေးရဲ့အနောက် စောင်းတန်းကိုဖြတ်သွားရင်ပိုနီးတာမို
+              ဖြတ်လမ်းကပဲသွားလိုက်တယ်။ အသွားတုန်းက စောင်းတန်းကအဆင်း
+              နည်းနည်းလျှောက်ပြီးတော့ ထုံးစေတီလေးတစ်ဆူတွေ့တယ်။ ဉာဏ်တော်က ၁၀လောက်
+              ပဲရှိမယ်။ ထူးဆန်းတာက စေတီလေးရဲ့အထဲမှာ
+              ဘုရားဆင်းတုတော်တစ်ဆူရှိပြီးတော့ အဲ့ဆင်းတုတော်ကို သံကြိုးတွေနဲ့
+              သိုင်းထားတယ် အပြင်ကနေ သံဇကာလိုမျိုးတစ်ခုနဲ့ ပိတ်ထားတယ် သံဇကာက
+              လူလက်တစ်နှိက်စာလည်းမရှိဘူး အထဲကဆင်းတုတော်ကိုလည်း မြင်နိုင်တယ်။
+              'အဖေ အထဲက ဘုရားကို ဘာလို သံကြိုးနဲ့သိုင်းထားတာလဲမသိဘူးနော်'ဆိုတော့
+              အဖေ့ဆီက ဘာအဖြေမှမရပါဘူး (ကျေးဇူး) သားဖ နှစ်ယောက်
+              လက်ဖက်ရည်ဆိုင်ရောက်တယ် ခဏပဲနေပြီး ပြန်လာတာ။
+              လာလမ်းအတိုင်းပဲပြန်လာတော့ အဲ့စေတီအရှေ့ရောက်‌ေရာ အထဲက
+              ဘုရားဆင်းတုမှာ ဆီမီးတွေပူဇော်ထားတာတော့ ။
+              ပြီးတော့မွှေးကြိုင်နေတာပဲ။ အဖေက ကိုယ့်လက်ကိုဆွဲပြီးသွက်သွက်
+              လျှောက်တာပေါ့နော်။အဲ့ချိန် စိတ်ထဲမှာ အနောက် မှာ
+              လူတွေအများကြီးရှိနေသလိုခံစားရတာ။ စောင်းတန်းပေါ်ရောက်ရော
+              စောင်းတန်းမှာက မီးအလင်းရောင်နည်းနည်းရှိတယ်။(အဲ့လိုဖြစ်လာခဲ့ရင်
+              လုံးဝနောက်လှည့်မကြည့်နဲ့ ) သားဖနှစ်ယောက်လုံးကတော့ မီးအလင်းရောင်
+              နားရောက်တာနဲ့ နောက်ကို တည့်တည့်ကို လှည့်ကြည့်မိတာပဲ။ အဲ့မှာ
+              ကွာ....ထုံးစေတီ ဘေးနားမှာ ယောကျာ်း၂ယောက် မညီမညာနဲ့ကို ခြေတွေလက်တွေ
+              အပြီပြင်ချိုးပြီး ကနေတာ။ ကနေကြတာများ ပြိုင်ပွဲဝင်နေသလားထင်ရတယ်။
+              အပေါ်အကျီ မပါဘူး ပုဆိုး ကတောင်းကျိုက်နဲ့ ခေါင်းမှာ
+              အချွန်အတက်တွေနဲ့တစ်ခုခုစောင်းထားကြတယ်။ မျက်နှာကတော့
+              စေတီဘက်ကိုပဲမူထားကြတယ်။ ဘေးနားမှာလဲ မဲမဲ တွေ အများကြီးပဲ။
+              မြူခိုးလိုမျိုးတွေ။ စဉ်းစားကြည့်ကြလေနော်
+              မီးအလင်းရောင်နည်းနေတဲ့နေရာကနေ လှမ်းမြင်ရတဲ့မြင်ကွင်းက
+              အမှောင်ထုကြားထဲက စေတီတစ်ဆူမှာ အကျီမပါတဲ့ ယောက်ကျား ၂ယောက်က
+              ခြေတွေလက်တွေ ကွေးနေအောင် ချိုးပြီး မညီမညာကနေတာ ကြီးက အဖေကတော့
+              ကိုယ့်ကို ချီပြီး ထမင်းဆိုင်ကို ပြေးတာပဲ။ထမင်းဆိုင်က ဦးလေးကြီးကလဲ
+              သားဖနှစ်ယောက် ဖြစ်ပျက်လာပုံကြည့်ပြီး ဘာမှမမေးတော့ဘူး။မေးလည်း
+              မဖြေနိုင်ဘူး။ဦးလေးကြီးကပဲ ဘုန်းကြီးကျောင်းထဲ လိုက်ပို
+              ဆရာတော်ကြီးဆီပါ တစ်ခါထဲခေါ်သွားပေးတာ
+              သားဖနှစ်ယောက်လုံးကို။ဆရာတော်ကြီးကတော့ ရေမန်းတွေဘာတွေ
+              ပေး။အမျှတွေဘာတွေပေး ရွတ်ဖတ်ပေးပေါ့နော်။ (အဖေကချီပြေးတယ်ဆိုတော့
+              အဲ့တုန်းက ကလေးထင်နေမှာစိုးလို ၉တန်းဖြေပြီးစ ဖြစ်နေပြီ)
+              ထုံစံအတိုင်း အဖေ ပဲ အထောင်းခံရတာပေါ့နော်။ညဖက်ကြီး
+              သမီးခေါ်ပြီးလျှောက်သွားတယ်ဘာညာပေါ့။သားဖနှစ်ယောက်လုံး
+              နောက်နေ့ဖျားတာပဲ။ချက်ချင်းပဲပြန်ချလာကြတာ။ သူတိုဘာသာနေတာကို
+              ကိုယ်တွေသားအဖက မြင်ခဲ့ရတာပေါ့။ခြောက်ချင်ရင်တော့ အရှေ့ဖြတ်လာထဲ
+              ခြောက်မှာသေချာတယ်။
+            </p>
+          </div>
+          <p class="see-more hidde">See more</p>
+          <img class="post-image" src="Images/Post1.jpg" alt="Post Image" />
+        </div>
+        <div class="post-actions">
+          <div class="like-button">
+            <i class="material-icons">favorite</i> Like
+          </div>
+          <div class="comment-button">
+            <button class="postbutton show-comments">
+              <i class="material-icons">comment</i> Comment
+            </button>
+          </div>
+          <div class="share-button">
+            <button class="postbutton share-post">
+              <i class="material-icons">share</i> Share
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="comments-container" style="display: none">
+        <div class="comment">
+          <legend>Pout Fatt:</legend>
+          ကြောက်စရာကြီ:😰
+        </div>
+        <div class="comment">
+          <legend>Poe:</legend>
+          အဲ့ထမင်းဆိုင်ကို သိတယ်။
+        </div>
+        <div class="comment-input">
+          <input
+            type="text"
+            class="new-comment"
+            placeholder="Add a comment..."
+          />
+          <button class="add-comment">Send</button>
+        </div>
+      </div>
+      <div class="popup">
+        <div class="share-head">
+          <span>Share Media</span>
+          <div class="close"><i class="fas fa-times"></i></div>
+        </div>
+        <div class="share-content">
+          <p>Share the post via</p>
+          <ul class="icons">
+            <a href="https://www.facebook.com"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="https://www.twitter.com"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="https://www.whatsapp.com"
+              ><i class="fab fa-whatsapp"></i
+            ></a>
+            <a href="https://www.telegram.org"
+              ><i class="fab fa-telegram"></i
+            ></a>
+          </ul>
+          <p>Or copy the link</p>
+          <div class="field">
+            <i class="fas fa-link"></i>
+            <input type="text" readonly value="spiritsaga.com/example" />
+            <button>Copy</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Second post content -->
+      <div class="post-container">
+        <div class="post-header">
+          <img
+            class="profile-picture"
+            src="Images/pf2.jpg"
+            alt="Profile Picture"
+          />
+          <div class="username">Monica</div>
+          <div class="timestamp">1 days ago</div>
+        </div>
+        <div class="post-content">
+          <div class="expandable-text">
+            <p>
+              အဖွားငယ်ငယ်ကကြုံခဲ့ရတာလေးပြောပြချင်လိုပါ
+              အဖွားအသက်၁၅နှစ်လောက်တုန်းကအဖွားကပဲပြုတ်လိုက်ရောင်းတာပေါ့
+              တနေ့ကျမနက်လေးနာရီလောက်အဖွားက
+              ခြံအကျယ်ကြီးတွေပဲရှိတဲ့ဘက်ကိုသွားရောင်းဖိုလုပ်တော့
+              အဲ့ထိပ်ကအစောင့်ဦးလေးကြီးက
+              သမီးနင်လမ်းထောင့်ချိုးပြီးရင်ရောက်တဲ့အိမ်ကိုမဝင်နဲ့အဲ့မှာပဲရှိသေးတယ်အဖွားက
+              စိတ်မြန်လက်မြန်သမားဆိုတော့
+              ဟုတ်ဟုတ်ပဲပြောပြီးစကားဆုံးအောင်နားမထောင်လိုက်ဘူးပေါ့
+              အဖွားလဲစောနကအဖိုးပြောတဲ့အိမ်ရှေ့လဲအရောက်
+              ခြံထဲကမိန်းမခေါ်သံကြားတာပေါ့ ဒါနဲ့သူလဲ ေဖာက်သည်ရပြီဆိုပြီး
+              ခြံထဲဝင်သွားတော့ အမျိုးသမီးတယောက်ထွက်လာတယ် တော်တော်လှတယ်လိုပြောတယ်
+              ပဲပြုတ်တစ်ကျပ်ဖိုးဆိုတော့အဖွားကခြံထဲနားလေးမှာဗန်းချပြီး
+              စောင့်နေတာပေါ့ သူကတော့မှာပြီးပန်းကန်သွားယူမလိုခနဆိုပြီးဝင်သွားတာ
+              ၁၅မိနစ်လဲမလား နာရီဝက်လဲမလာတော့ အဖွားလဲ
+              အိမ်ပေါက်ဝနားသွားပြီးအော်ခေါ်တာပေါ့
+              နောက်လဲကျအိမ်ထဲကပြန်ထွက်လာတဲ့ပုံက
+              ဆံပင်ရှည်ကြီးကိုမျက်နှာရှေ့ချထားပြီး ဖင်တရွတ်ဆွဲ
+              ထမီကြီးကိုလဲလက်တဖက်က ကိုင်ထားပြီး ငြီးသံကြီးနဲ့ထွက်လာတာတဲ့
+              အဖွားဆိုအစကမေ့ပြီးရပ်နေတာ
+              တဖြေးဖြေးသူ့နားရောက်လာတော့မှပြေးဖိုသတိရပြီးပြန်ပြေးတာတဲ့
+              လမ်းထိပ်နားရောက်တော့ကံကောင်းပြ်ီးစောနကအဖိုးနဲ့တွေ့တော့
+              စောနကအဖိုးကမနက်ဆယ်နာရီလောက်ကျ
+              သူ့သားနှစ်ယောက်ကိုအဲ့ဗန်းတွေကိုသွားယူခိုင်းရတယ်တဲ့
+              အဲ့အဖိုးကပြန်ပြောပြတာတော့ တမိသားစုလုံးအthetခံရတယ်
+              ပိုက်ဆံအရမ်းရှိတော့စိတ်ဆွဲပြီးမကျွတ်တာတဲ့ညဆိုတမိသားစုလုံးခြောက်တာတဲ့
+            </p>
+          </div>
+          <p class="see-more hidde">See more</p>
+          <img class="post-image" src="Images/Post2.jpg" alt="Post Image" />
+        </div>
+        <div class="post-actions">
+          <div class="like-button">
+            <i class="material-icons">favorite</i> Like
+          </div>
+          <div class="comment-button">
+            <button class="postbutton show-comments">
+              <i class="material-icons">comment</i> Comment
+            </button>
+          </div>
+          <div class="share-button">
+            <button class="postbutton share-post">
+              <i class="material-icons">share</i> Share
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="comments-container" style="display: none">
+        <div class="comment">
+          <legend>Thet Mhue:</legend>
+          သနားဖို့ကောင်းလိုက်တာ
+        </div>
+        <div class="comment">
+          <legend>Poe:</legend>
+          ကြုံဖူးတယ်အဲ့လို
+        </div>
+        <div class="comment">
+          <legend>Kaung TZ:</legend>
+          အခြောက်ခံရတာတောင်နဲသေးတယ်
+        </div>
+        <div class="comment-input">
+          <input
+            type="text"
+            class="new-comment"
+            placeholder="Add a comment..."
+          />
+          <button class="add-comment">Send</button>
+        </div>
+      </div>
+      <div class="popup">
+        <div class="share-head">
+          <span>Share Media</span>
+          <div class="close"><i class="fas fa-times"></i></div>
+        </div>
+        <div class="share-content">
+          <p>Share the post via</p>
+          <ul class="icons">
+            <a href="https://www.facebook.com"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="https://www.twitter.com"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="https://www.whatsapp.com"
+              ><i class="fab fa-whatsapp"></i
+            ></a>
+            <a href="https://www.telegram.org"
+              ><i class="fab fa-telegram"></i
+            ></a>
+          </ul>
+          <p>Or copy the link</p>
+          <div class="field">
+            <i class="fas fa-link"></i>
+            <input type="text" readonly value="spiritsaga.com/example" />
+            <button>Copy</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 post content -->
+      <div class="post-container">
+        <div class="post-header">
+          <img
+            class="profile-picture"
+            src="Images/pf3.jpg"
+            alt="Profile Picture"
+          />
+          <div class="username">Mee Mee</div>
+          <div class="timestamp">2 days ago</div>
+        </div>
+        <div class="post-content">
+          <div class="expandable-text">
+            <p>
+              ကျွန်မငယ်ငယ်က အဖေတိုပြောပြဖူးတာလေး
+              ပြောပြချင်လိုပါ...သိပ်တော့မမှတ်မိတော့ဘူး<br />
+
+              အဖေ့အသ်28/29လောက်ကပေါ့း<br />
+              အဖေတိုက မကွေး နယ်ဘက်က ဟ်ုးတောကျတဲ့ဘက် ချင်းပါးမဲမျိုးရိုးပါး<br />
+              စီးပွားရေးအလုပ်က ငါးရှာ ပန်းတက် အမဲလိုက်ပေါ့း<br />
+
+              တစ်ရက်တော့ အဖေရယ် အဖေညီရယ် တခြားသူငယ်ချင်း‌တစ်ယောက်ရယ် 3ယောက်ဟာ
+              တောင်ပေါ်အမဲလိုက်သွားရင် အသားရလို ချက်စားကြပီး ခနကြာတော့. အဖေတိုလဲ
+              ရွာကိုပြန်ခဲ့ကြတော့ အဖေ့ညီက ပါမလာဘူး ညနေထိပါ ပေါ်မလာလို
+              ရွာထဲကလူကြီး‌ေခါ် တောင်ခြေမှာငှက်ပျောပွဲတွေပေးနဲ့
+              နတ်တွေတိုင်တည်တော့မှ နောက်နေ့ မနက် ရွာကို သူ့ဟာသူ ရောက်လာတယ်တဲ့
+              အဖေတိုက ဘာတွေဖြစ်ပြီးဘယ်တွေသွားနေတာလဲ ဆိုတော့ အဖေ့ညီက
+              "ငါရက်တွေအများကြီးကျော်ဖြတ်ခဲ့ရတာ .ဗိုက်ဆာရင်
+              စားစရာအသီးတွေတွေ့‌တယ် အိပ်ချင်ရင် ဂူကိုတွေ့တယ် မနက်မိုးလင်းရင်
+              မဆုံးတဲ့လမ်းခရီး ဆက်လျောက်နေရတာ နောက်တော့မှမျက်နှာမှာ
+              ဆေးမှင်ကြောင်တွေထိုးထားတဲ့ရှမ်းအဘွားကြီးနဲ့တွေ့ပီး
+              လမ်းညွှန်လိုက်လို ရွာပြန်ရောက်လာတာ.."တဲ့ သူ ရောက်သွားတဲ့အဘွားကြီး
+              နေရာနဲ့အမဲလိုက်တဲ့နေရာနဲ့ကတောင်တွေတော်တော်လေး ခြားတယ် လို
+              အဖေကတော့ပြောတာပဲ . အသားချက်စားရင် နတ်မတင်မိတာလား
+              ချက်စားတဲ့နေရာမှားတာလားတော့ မပြောတတ်တော့ဘူး
+            </p>
+          </div>
+          <p class="see-more hidde">See more</p>
+          <img class="post-image" src="Images/Post3.jpg" alt="Post Image" />
+        </div>
+        <div class="post-actions">
+          <div class="like-button">
+            <i class="material-icons">favorite</i> Like
+          </div>
+          <div class="comment-button">
+            <button class="postbutton show-comments">
+              <i class="material-icons">comment</i> Comment
+            </button>
+          </div>
+          <div class="share-button">
+            <button class="postbutton share-post">
+              <i class="material-icons">share</i> Share
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="comments-container" style="display: none">
+        <div class="comment">
+          <legend>Nandar:</legend>
+          တောခြောက်တာနေမယ်
+        </div>
+        <div class="comment">
+          <legend>Moe Sett:</legend>
+          နတ်ဖွက်ထားတာမျိုးလား
+        </div>
+        <div class="comment-input">
+          <input
+            type="text"
+            class="new-comment"
+            placeholder="Add a comment..."
+          />
+          <button class="add-comment">Send</button>
+        </div>
+      </div>
+      <div class="popup">
+        <div class="share-head">
+          <span>Share Media</span>
+          <div class="close"><i class="fas fa-times"></i></div>
+        </div>
+        <div class="share-content">
+          <p>Share the post via</p>
+          <ul class="icons">
+            <a href="https://www.facebook.com"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="https://www.twitter.com"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="https://www.whatsapp.com"
+              ><i class="fab fa-whatsapp"></i
+            ></a>
+            <a href="https://www.telegram.org"
+              ><i class="fab fa-telegram"></i
+            ></a>
+          </ul>
+          <p>Or copy the link</p>
+          <div class="field">
+            <i class="fas fa-link"></i>
+            <input type="text" readonly value="spiritsaga.com/example" />
+            <button>Copy</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 post content -->
+      <div class="post-container">
+        <div class="post-header">
+          <img
+            class="profile-picture"
+            src="Images/pf4.jpg"
+            alt="Profile Picture"
+          />
+          <div class="username">N Cyein</div>
+          <div class="timestamp">13 Sep</div>
+        </div>
+        <div class="post-content">
+          <div class="expandable-text">
+            <p>
+              ဖြစ်ရပ်မှန် တစ်ခုပါ<br />
+
+              လွန်ခဲ့တဲ့ ၁၅နှစ်လောက် ၂၀၀၉ ခုနှစ်လောက်တုန်းကပေါ့ ကျွန်တော်
+              ဘွဲ့ရပြီးချင်းချင်း မလေးရှားကိုရောက်သွားတယ် အလုပ်ကတော့ Indian
+              Resturant တစ်ခုမှာ Waiter အနေနဲ့ အလုပ်လုပ်ခဲ့တယ်
+              စားသောက်ဆိုင်မှာဆိုတော့ လူပေါင်းစုံနဲ့ ဆုံခဲ့ရတာပေါ့ အဲမှာ
+              အလုပ်သမားတွေထဲမှာလည်း အများစုက India လူမျိုးတွေ ပြီးရင် အင်ဒို
+              ဆာဘား လူနည်းစုကတော့ ကျွန်တော်တို့ မြန်မာလူမျိုးပါပဲ အဲဒီအထဲမှာ
+              အင်ဒိုက လာလုပ်တဲ့ ကောင်လေးတစ်ယောက်ရှိတယ် ကျွန်တော်တို့ကတော့ သူ့ကို
+              ဒေါဒေါ်လို့ခေါ်ကြတယ် ကျွန်တော့်အလုပ်ချိန်က မနက် 7:00AM to ည7:00PM
+              ဒေါဒေါ်ရဲ့ အလုပ်ချိန်က နေ့လည် 2:30PM to မနက် 2:30AM သူလည်း waiter
+              ပဲ သူနဲ့ ကျွန်တော်နဲ့က နေ့လည်သူဆင်းလာတဲ့ အချိန်ဆို ဆုံကြတာပေါ့ သူက
+              သဘောကောင်းတယ် Nice ဖြစ်တယ် ကျွန်တော်နဲ့လည်း စလိုက် နောက်လိုက်နဲ့
+              အရမ်းခင်ကြပါတယ် တစ်ရက်မှာ သူ အလုပ်ဆင်းလာတယ် မျက်နှာလုံးဝမကောင်းဘူး
+              တစ်ခုခုကို အရမ်း ဝမ်းနည်းကြေကွဲနေတဲ့ပုံစံကြီးဖြစ်နေတော့ ကျွန်တော်က
+              မေးကြည့်တယ် ဘာဖြစ်လည်းပေါ့ သူက ပြောပြတယ် အင်ဒိုမှာ
+              သူ့ရဲ့အရမ်းချစ်ရတဲ့ သူငယ်ချင်းတစ်ယောက်ရှိတယ်တဲ့ အဲဒီ
+              သူ့သူငယ်ချင်းက ကား accident ဖြစ်ပြီး ဆုံးသွားတယ်တဲ့
+              သူအရမ်းဖြေမရအောင် ဝမ်းနည်းကြေကွဲနေရတယ်တဲ့ ကျွန်တော်လည်း မလေးစကား
+              တတ်သလောက်လေးနဲ့ တရားချပြီး ဖြေသိမ့်ပေးလိုက်ပါတယ်
+              ကျွန်တော်တွေ့နေတာက သူ အဲဒီနေ့ တချိန်လုံး အဆင်ပြေမနေဘူး
+              စိတ်နဲ့လူနဲ့မကပ်ဘူး အလုပ်လုပ်တာတွေ အလွဲ အော်ဒါကောက်တာတွေအမှား
+              Customers တွေက သူ့ကို စိတ်ဆိုး မန်နေဂျာက ငေါက်နဲ့ သူ့ခဗျာ တော်တော်
+              အဆင်မပြေဖြစ်နေတယ် ည 7:00PM ရောက်တော့ ကျွန်တော် အလုပ်ချိန်က ပြီးပြီ
+              အလုပ်ပြန်ခါနီးမှာ သူ့ကို ကျွန်တော် မှာခဲ့သေးတယ် ဝမ်းနည်းနေပေမယ့်
+              အလုပ်ကို ဂရုစိုက်ဖို့ ပြောခဲ့တယ် ပြီးတော့ ကျွန်တော် အပေါ်ထပ်ကို
+              တက်လာခဲ့တယ် အပေါ်ထပ်ဆိုလို့ ပြောရဦးမယ် ကျွန်တော်တို့အလုပ်က
+              အဝေးကြီးသွားစရာ မလိုဘူး အလုပ်ဆင်းဖို့ကို စားသောက်ဆိုင်က
+              အောက်မှာဖွင့်တယ် အလုပ်သမားတွေကတော့ အပေါ်ထပ်မှာနေတဲ့
+              နှစ်ထပ်တိုက်ကြီးပေါ့ အဲတော့ ကျွန်တော်လည်း အပေါ်တက်ပြီး
+              ရေလေးဘာလေးချိုးပြီး ခဏထိုင် ကွမ်းယာစားဖို့ ယာနေတုန်းပဲ ရှိသေးတယ်
+              အောက်ထပ်ဆိုင်အောက်က ဝုန်းဒိုင်းကြဲပြီး ဆူညံတဲ့ အသံတွေ ကြားလိုက်တယ်
+              ကျွန်တော့်စိတ်ထဲမှာ အလုပ်သမားအချင်းချင်း ဖြစ်ကြတယ် ထင်လိုက်ပီး
+              ဘာဖြစ်ကြတာလည်း ဆိုတာ စူးစမ်းချင်စိတ်နဲ့ အောက်ကို ဆင်းမလို့
+              လှေကားနားရောက်တဲ့အချိန်မှာပဲ ကျွန်တော်တွေ့လိုက်တာက ဒေါဒေါ်
+              ညကိုးနာရီလောက်ပဲရှိအုံးမယ်ထင်တယ် ကျွန်တော်တွေ့လိုက်တဲ့ ဒေါဒေါ်
+              ပုံစံက ကျွန်တော့် မျက်စိထဲ ခုထိမထွက်နိုင်သေးဘူး သူက
+              မျောက်တစ်ကောင်လို လေးဘက်ထောက်ပြီး မျက်လုံးကြီးကလည်း နီရဲရဲ
+              ပါးစပ်ကလည်း မျောက်လို တခွီးခွီးနဲ့ အောက်ပြီး အောက်လှေကားကနေ
+              ကျွန်တော်တို့နေတဲ့ အပေါ်ထပ်ကို ခုန်ပြီး မျောက်တစ်ကောင်လို တက်လာတယ်
+              သူ့နောက်မှာက အိန္ဒိယ အလုပ်သမားတွေနဲ့ မန်နေဂျာက လိုက်လာကြတယ်
+              ဒေါဒေါ် လှေကားပေါ်ကို ခုန်တက်လာတော့ ဘာမှန်းမသိဘဲနဲ့ ကျွန်တော်
+              အိပ်ခန်းဘက်ကို ပြန်ပြေးလိုက်တယ် ဒေါဒေါ်က ကျွန်တော် ပြေးသွားတဲ့
+              အိပ်ခန်းဘက်ကို လိုက်မလာဘဲဝရံတာလူကြီးလည်ပင်းလောက်မြင့်တဲ့ အမြင့်ကိူ
+              မျောက်တစ်ကောင်လိုပဲ သာသာယာယာ ခုန်ထွက်သွားတယ် ပြီးရင်
+              အိမ်ခေါင်မိုးအပေါ်မှာ မီးခိုးတိုင် ထောင်ထားတာ ရှိတယ်
+              အဲဒီမီးခိုးတိုင်ပေါ်ကို မျောက်တစ်ကောင်လိုပဲ တွယ်တက်သွားတယ်
+              အိန္ဒိယတွေက အော်ပြောနေကြတယ် ဟေ့ကောင်ပြန်ဆင်း ပြန်ဆင်းဆိုပြီး
+              အော်ပြောနေကြတယ် ဒေါဒေါ်လည်း အဲဒီမီးခိုးတိုင်ပေါ်က လျှောချပြီး
+              ပြန်အဆင်း အိန္ဒိယ နှစ်ယောက်က အိမ်အမိုးပေါ်တက်ပြီး
+              သူ့ကိုချုပ်ပြီးခေါ်လာခဲါတယါ် ပြောချင်တာက အဲမှာ အိန္ဒိယတွေက
+              အားရှိတဲ့ ဗလတောင့်တောင့်တဲ့ကောင်တွေ ဒေါဒေါ်က သေးသေးသွယ်သွယ်
+              ပိန်ပိန်လေး ဒေါဒေါ်ရုန်းချက်က အားကောင်းပါတယ်ဆိုတဲ့
+              အိန္ဒိယသုံးယောက်လောက်ချုပ်တာ မနိုင်ဘူးဖြစ်နေတယ် ကျွန်တော်လုည်း
+              မျက်လုံးပြူး မျက်ဆံပြူးနဲ့ ဘာလုပ်လို့ ဘာကိုင်ပေးရမယ်မှန်းမသိ
+              ဖြစ်နေတဲ့ အနေအထားရောက်သွားတယ်
+            </p>
+          </div>
+          <p class="see-more hidde">See more</p>
+        </div>
+        <div class="post-actions">
+          <div class="like-button">
+            <i class="material-icons">favorite</i> Like
+          </div>
+          <div class="comment-button">
+            <button class="postbutton show-comments">
+              <i class="material-icons">comment</i> Comment
+            </button>
+          </div>
+          <div class="share-button">
+            <button class="postbutton share-post">
+              <i class="material-icons">share</i> Share
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="comments-container" style="display: none">
+        <div class="comment">
+          <legend>U Naing:</legend>
+          ဘုရားတရားလုပ်ကြပါ
+        </div>
+        <div class="comment">
+          <legend>Zin Mar:</legend>
+          shrပါရစေ
+        </div>
+        <div class="comment-input">
+          <input
+            type="text"
+            class="new-comment"
+            placeholder="Add a comment..."
+          />
+          <button class="add-comment">Send</button>
+        </div>
+      </div>
+      <div class="popup">
+        <div class="share-head">
+          <span>Share Media</span>
+          <div class="close"><i class="fas fa-times"></i></div>
+        </div>
+        <div class="share-content">
+          <p>Share the post via</p>
+          <ul class="icons">
+            <a href="https://www.facebook.com"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="https://www.twitter.com"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="https://www.whatsapp.com"
+              ><i class="fab fa-whatsapp"></i
+            ></a>
+            <a href="https://www.telegram.org"
+              ><i class="fab fa-telegram"></i
+            ></a>
+          </ul>
+          <p>Or copy the link</p>
+          <div class="field">
+            <i class="fas fa-link"></i>
+            <input type="text" readonly value="spiritsaga.com/example" />
+            <button>Copy</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5 post content -->
+      <div class="post-container">
+        <div class="post-header">
+          <img
+            class="profile-picture"
+            src="Images/f1.png"
+            alt="Profile Picture"
+          />
+          <div class="username">Michel</div>
+          <div class="timestamp">13 Sep</div>
+        </div>
+        <div class="post-content">
+          <div class="expandable-text">
+            <p>
+              ကိုယ့်အဖေဆိုခဏခဏကြုံရတာ ရထားထိန်းဆိုတော့ ကုန်တင်တွဲနဲ့ကပ်လျက်ပဲ
+              အာ့မှာ လူနာတင်လှဲကြီးပါတုန်းက လှဲပေါ်မှာညဘက်ကြီး လူတစ်ယောက်
+              ငုတ်တုတ်ထိုင်နေတာ ခေါင်းအပြည့်မပါဘူးတဲ့ 🥴 တစ်ယောက်ထဲ တာ၀န်ကျတော့
+              စဉ်းစားသာကြည့် 🥲 အဖေတို့က မြင်နေကျမို့လို့ အေးဆေးဖြစ်နေကော
+              ကိုယ်သာဆို လိပ်ပြာပါလွင့်မလားမသိ 😢<br />
+              ရန်ကုန်ဘူတာကြီးအကြောင်း<br />
+              ကောင်လေးတယောက်ကိုယ့်ဘေးကနေဖြတ်ပီး ရထားပေါ်က ၃ခါလောက်ဆင်းဆင်းသွားတာ
+              ရထားခနရပ်တယ်ထင်နေတာ ရထားသွားနေတုန်းကြီးလဲ ကိုယ့်ဘေးကနေဖြတ်ပီး
+              ရထားပေါ်ကဆင်းသွားမှ သရဲခြောက်မှန်းသိတာ ၃ခါလုံးနောက်ကျောပဲ
+              မြင်လိုက်ရတယ် 😌😌😌<br />
+              ၁. ရထားလမ်းလွဲနေရာက uniformနဲ့ အရာ<br />
+
+              ၂. တံခါးအဝင်ဝနားက စကားထိုင်ပြောနေကြတဲ့ကြက်ဥသယ်သားအမိ<br />
+
+              ၃. ထိုင်ခုံမျက်နှာချင်ဆိုင် အိမ်သာထထတက်တဲ့လူကြီး<br />
+
+              ၄.ဘူတာမှာစျေးရောင်းနေတဲ့မိန်းမတစ်ဦး<br />
+
+              ၅.ပိုက်ဆံလာလာတောင်း မုန်းလုတောင်းတတ်တဲ့ကလေးလေးတွေ<br />
+
+              ၆. အလွန်ဆိုးတဲ့အနံ့ကြီးနဲ့ ကိုယ်တစ်ခြမ်းမျက်နှာတစ်ခြမ်းနဲ့လူ<br />
+
+              ၇.စကားတွေပြော ရယ်မောနေပေမယ့် လုံးဝပြားခြပ်နေတဲ့လူတစ်ဦး<br />
+
+              ၈. သွေးရောင်ဝတ်စုံတဲ့ ခုန်ခုန်ချချသွားတဲ့ မိန်းကလေး<br />
+
+              ၉. ရထားရပ်ချိန် အော်အော်လာတဲ့အသံနက်ကြီး<br />
+
+              ကျန်တာတော့ နောက်မှ အသေးစိပ်စာစီပြီးတင်ပေးမယ်ဗျ<br />
+            </p>
+          </div>
+          <p class="see-more hidde">See more</p>
+        </div>
+        <div class="post-actions">
+          <div class="like-button">
+            <i class="material-icons">favorite</i> Like
+          </div>
+          <div class="comment-button">
+            <button class="postbutton show-comments">
+              <i class="material-icons">comment</i> Comment
+            </button>
+          </div>
+          <div class="share-button">
+            <button class="postbutton share-post">
+              <i class="material-icons">share</i> Share
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="comments-container" style="display: none">
+        <div class="comment">
+          <legend>Lue Lue:</legend>
+          ကိုယ်သာအဲ့နေရာမှာဆိုရင်ရူးသွားနိုင်တယ်
+        </div>
+        <div class="comment">
+          <legend>Hla Myo:</legend>
+          ရထားစီးရတာညဘက်ဆိုပိုကြောက်ဖို့ကောင်းတယ်
+        </div>
+        <div class="comment-input">
+          <input
+            type="text"
+            class="new-comment"
+            placeholder="Add a comment..."
+          />
+          <button class="add-comment">Send</button>
+        </div>
+      </div>
+      <div class="popup">
+        <div class="share-head">
+          <span>Share Media</span>
+          <div class="close"><i class="fas fa-times"></i></div>
+        </div>
+        <div class="share-content">
+          <p>Share the post via</p>
+          <ul class="icons">
+            <a href="https://www.facebook.com"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="https://www.twitter.com"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="https://www.whatsapp.com"
+              ><i class="fab fa-whatsapp"></i
+            ></a>
+            <a href="https://www.telegram.org"
+              ><i class="fab fa-telegram"></i
+            ></a>
+          </ul>
+          <p>Or copy the link</p>
+          <div class="field">
+            <i class="fas fa-link"></i>
+            <input type="text" readonly value="spiritsaga.com/example" />
+            <button>Copy</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6 post content -->
+      <div class="post-container">
+        <div class="post-header">
+          <img
+            class="profile-picture"
+            src="Images/pf6.jpg"
+            alt="Profile Picture"
+          />
+          <div class="username">Wolf Ranger</div>
+          <div class="timestamp">12 Sep</div>
+        </div>
+        <div class="post-content">
+          <div class="expandable-text">
+            <p>
+              ❝ #တစ္ဆေကြီးလတရုတ်အယူအဆများ ❞<br />
+
+              တနေ့က ညဖက်ကြီးဒီလိုအချိန် ရုံးခန်းသွားတာ မြေကြီးပေါ်မှာ
+              အစားအစာတွေနဲ့ကန်တော့ပြီး ရွှေစက္ကူတွေမီးရှို့နေတဲ့သူတွေ
+              တွေ့ခဲ့တယ်။ တရုတ်အမွှေးတိုင်နံ့ရော စက္ကူမီးရှို့တဲ့အနံ့ရော
+              မွှန်နေတာပဲ။ လမ်းဘေးကပူဇော်ထားတာတွေကို
+              မနင်းမိအောင်သတိထားပြီးသွားရတယ်။ သတိထားဆို
+              သူတို့မှာအယူတွေရှိတာကိုး။ ယုံတာမယုံတာအပထား။ သူတို့အယူအဆကို သိတော့
+              #သူတို့မကြိုက်တာကို ရှောင်လို့ရတာပေါ့။ သရဲမကြိုက်တာထား၊
+              အသိမိတ်ဆွေတွေ မကြိုက်တာကို သတိပြုသင့်တယ်။ တရုတ်တစ္ဆေကြီးပွဲတော်
+              Hungry Ghost month က လာမယ့် ဩဂုတ်လ ၃၀ နေ့ကျမယ်။ ဒီတရုတ်လို ၇
+              လပိုင်း (အထူးသဖြင့် ဩဂုတ်လ ၃၀ ရက်နေ့) မှာ ငရဲပြည်တံခါးပွင့်သတဲ့။
+              အဲ့ဒီတော့ ဆာလောင်နေတဲ့ သရဲတစ္ဆေနာနာဘာဝတွေဟာ
+              ဟိုနားဒီနားလမ်းသလားကြသတဲ့။ ဒါ့ကြောင့် တရုတ်တွေက အောက်ပါအချက်တွေကို
+              ဒီလထဲမှာရှောင်ကြတယ်။ (၁) လမ်းဘေးမှာ ပူဇော်ပသထားတဲ့အစားအသောက်၊
+              ဖယောင်းတိုင်၊ အမွှေးတိုင်၊ ငွေစက္ကူစတာတွေကို မနင်းမိအောင်
+              ရှောင်တဲ့။ သူတို့စားသောက်၊ ကောက်ယူနေတုန်းတက်နင်းမိရင်
+              စိတ်ဆိုးလိမ့်မယ်တဲ့။ ကျနော်တို့အသိတစ်ယောက်ဆို မြန်မာပြည်ကရောက်ခါစက
+              မသိလို့ကောက်လာတာ၊ နောက်မှလန့်ဖြန့်ပြီး ပြန်သွားထားရဖူးတယ်။
+              ကျနော်တို့ တက္ကသိုလ်တက်တုန်းက သူငယ်ချင်းတစ်ယောက်ဆို
+              ညဘက်ကြီးအဲ့ဒီလမ်းဘေးကပူဇော်ထားတာတွေကို တက်နင်းမိလို့
+              သရဲကညဘက်အိပ်မက်ထဲမှာ လာသတိပေးဖူးသတဲ့။<br />
+
+              (၂) အဲ့ဒီလမှာ အိမ်ထဲဝင်လာတဲ့ ပိုးကောင်တွေ၊ လိပ်ပြာ၊ ပိုးဖလံ၊
+              ဒါးခုတ်ကောင်စတာတွေကို မသတ်ကောင်းဘူးတဲ့။ အဲ့ဒါရှေးဘဝကတော်စပ်ခဲ့တဲ့
+              အဖိုးအဖွားစတဲ့သူတွေ အိမ်လည်လာတာဖြစ်နိုင်လို့တဲ့။ 🥶 ဒါကြောင့်
+              သူများအိမ်သွားလို့ ပိုးကောင်ဝင်လာတာတွေ့ရင် စေတနာမပိုမိစေနဲ့။<br />
+
+              (၃) အိမ်/ရုံးစတာတွေ မပြောင်းရွှေ့ကောင်းဘူးတဲ့။ အဲ့ဒီဒီလထဲမှာ
+              အိမ်ပြောင်းရုံးပြောင်းတာလုပ်ရင် တစ္ဆေသရဲတွေက
+              အိမ်ထောင်ပရိဘောဂတွေမှာ ကပ်ပါလာပြီး
+              ကမောက်ကမအနှောင့်အယှက်ပေးတတ်လို့တဲ့။<br />
+
+              (၄) စင်ကာပူမှာ ဒီလထဲမှာ တရုတ်ပြဇာတ်တွေ
+              စတိတ်ရှိုးတွေလုပ်တာတွေ့ရလိမ့်မယ်။
+              ကျနော်တို့အိမ်နားကမြက်ခင်းပြင်မှာ တစ္ဆေပူးတဲ့ပွဲလုပ်ခဲ့ဖူးတယ်။
+              တခါကမမြင်ဖူးလို့ဝင်ကြည့်တာ လူခေါင်းပြတ်ပုံတူလေးတွေကို
+              လှံဖျားထိပ်မှာစိုက်ထားတာကို တွေ့ရလို့ မသတီပဲပြန်ထွက်လာရတယ်။
+              အဲ့ဒီစတိတ်ရှိုးပွဲတွေမှာ ရှေ့ဆုံးတန်း VIP တန်းကို
+              နေရာလွတ်ခုံတွေချထားတာ တွေ့ရလိမ့်မယ်။ ဝင်မထိုင်မိစေနဲ့။
+              အဲ့ဒါတစ္ဆေသရဲတွေအတွက် VIP နေရာပေးထားတာ။ သွားထိုင်မိရင်
+              သူတို့စိတ်ဆိုးလိမ့်မယ်တဲ့။<br />
+
+              (၅) ဟိုတုန်းကဆို ကလေးနဲ့ကိုယ်ဝန်သည်တွေ
+              ညဘက်ညဉ့်နက်ချိန်အပြင်မထွက်ကြဘူးတဲ့။
+              ကိုယ်ဝန်သည်ရဲ့သန္ဓေသားထဲဝင်စားမှာစိုးလို့ရယ်၊ ကလေးတွေကိုယ်ပေါ်မှာ
+              ကပ်ပါလာမှာစိုးလို့တဲ့။<br />
+
+              (၆) ဒီလထဲမှာ မြစ်ချောင်းအင်းအိုင်ထဲ ရေဆင်းကူးတာ
+              လူကြီးတွေမကြိုက်ကြဘူး။ တစ္ဆေသရဲ အစောင့်ဘာညာတွေရဲ့ လူစားလဲတာ
+              ခံရတတ်လို့တဲ့။<br />
+
+              (၇) ညအိပ်ဖိနပ်ကို လူအိပ်တဲ့အိပ်ရာဖက်လှည့်မထားရဘူးတဲ့။
+              ရှေးတရုတ်အယူအရ ဖိနပ်ဟာမကောင်းဆိုးဝါးဝိညာဉ်တွေအတွက်
+              လမ်းပြအိမ်မြှောင်တဲ့။ 🤯 အဲ့ဒါကိုယ်အိပ်တဲ့အိပ်ရာဘက်ကို
+              ဖိနပ်ဦးလှည့်ချွတ်ထားရင် သရဲလမ်းပြဖြစ်တတ်သတဲ့။<br />
+
+              (၈) အထူးသဖြင့် အစားအသောက်ပန်းကန်ထဲကို မိမိမစားတဲ့အချိန်မှာ
+              တူတို့ဇွန်းတို့ မစိုက်ထားရဘူးတဲ့။ အဲ့ဒါသရဲတွေကို
+              လာစားဖို့ပြင်ပေးတာ၊ ဖိတ်ခေါ်တာနဲ့တူလို့တဲ့။<br />
+
+              (၉) ညဘက်မှာ တစ်ယောက်ယောက်ကမိမိနာမည်ကို နောက်ဘက်ကခေါ်ရင်
+              လှည့်မကြည့်ရဘူးတဲ့။ ပြီးတော့ သူများကို ညဘက်ကြီးနောက်ဖက်ကနေ
+              ပခုံးပုတ်တာ၊ ကလေးတွေကို ညဘက်ကြီးနာမည်ခေါ်တာ မလုပ်ရဘူးတဲ့။
+              တရုတ်အယူအရ ခေါင်းနဲ့ ပခုံးတစ်ဖက်တစ်ချက်ဆီပေါ်မှာ သရဲရန်ကကာကွယ်တဲ့
+              မမြင်ရတဲ့ Aura သို့မဟုတ် မီးတောက်ရှိတယ်။ အဲ့တာနောက်ကနေ
+              တစ်ယောက်ယောက်ကလက်နဲ့ပုတ်လိုက်ရင် အကာအကွယ်မီးတောက်ငြိမ်းတတ်သတဲ့။
+              ဒါကြောင့် ဒီလထဲမှာ သူများပခုံးသွားဖက်မယ်ဆိုသတိထားပါ။
+              သူများနာမည်ကို နောက်ကနေခေါ်တာ ဂရုပြုပါ။ တချို့တွေက မကြိုက်တတ်ဘူး။
+              ကြုံလို့ပြောရအုန်းမယ်။ ဒီလထဲမှာ အချင်းချင်း ဝက်အူလှည့်နဲ့ချိန်တာ၊
+              ဓားနဲ့ရွယ်တာ လုံးဝမလုပ်ကောင်းဘူးတဲ့။ <br />
+
+              (၁၀) ညဘက် အိမ်အပြင်ဖက်မှာ အင်္ကျီမလှန်းရဘူးတဲ့။ အဲ့လိုလှမ်းထားရင်
+              တစ္ဆေသရဲကလာပြီး ငှားဝတ်တတ်သတဲ့။<br />
+
+              (၁၁) ညဘက်မှာ အိမ်အပြင်ဘက်က/လမ်းကြားထဲက အုတ်နံရံကိုမမှီရဘူးတဲ့။
+              အုတ်နံရံတွေဟာ ညဘက်မှာအေးတာမို့ တစ္ဆေသရဲတွေက
+              ကပ်ရပ်ပြီးစကားပြောနေတဲ့ နေရာဖြစ်တတ်သတဲ့။<br />
+
+              (၁၂) ညဘက်ကြီး ဒီလထဲမှာသရဲအကြောင်း အတင်းမအုပ်ရဘူးတဲ့။
+              အဲ့လိုသူတို့အကြောင်းပြောလို့ သူတို့ထွက်တဲ့အချိန်နဲ့ဆုံလို့
+              သူတို့အကြောင်းပြောနေတာ၊ အတင်းအုပ်နေတာ သိသွားရင် မကြိုက်ဘူးတဲ့။
+              ပြောသာပြောရတာ ကိုယ်တောင် ညဘက်ကြီးသူတို့အကြောင်းပြောမိပြီ။ 🫢<br />
+            </p>
+          </div>
+          <p class="see-more hidde">See more</p>
+        </div>
+        <div class="post-actions">
+          <div class="like-button">
+            <i class="material-icons">favorite</i> Like
+          </div>
+          <div class="comment-button">
+            <button class="postbutton show-comments">
+              <i class="material-icons">comment</i> Comment
+            </button>
+          </div>
+          <div class="share-button">
+            <button class="postbutton share-post">
+              <i class="material-icons">share</i> Share
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="comments-container" style="display: none">
+        <div class="comment">
+          <legend>Boo Boo:</legend>
+          နောက်လဲဒါမျိုးတွေshrပေးပါအူံး
+        </div>
+        <div class="comment">
+          <legend>Poe:</legend>
+          အရမ်းစိတ်ဝင်စားဖို့ကောင်းတယ်
+        </div>
+        <div class="comment-input">
+          <input
+            type="text"
+            class="new-comment"
+            placeholder="Add a comment..."
+          />
+          <button class="add-comment">Send</button>
+        </div>
+      </div>
+      <div class="popup">
+        <div class="share-head">
+          <span>Share Media</span>
+          <div class="close"><i class="fas fa-times"></i></div>
+        </div>
+        <div class="share-content">
+          <p>Share the post via</p>
+          <ul class="icons">
+            <a href="https://www.facebook.com"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="https://www.twitter.com"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="https://www.whatsapp.com"
+              ><i class="fab fa-whatsapp"></i
+            ></a>
+            <a href="https://www.telegram.org"
+              ><i class="fab fa-telegram"></i
+            ></a>
+          </ul>
+          <p>Or copy the link</p>
+          <div class="field">
+            <i class="fas fa-link"></i>
+            <input type="text" readonly value="spiritsaga.com/example" />
+            <button>Copy</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7 post content -->
+      <div class="post-container">
+        <div class="post-header">
+          <img
+            class="profile-picture"
+            src="Images/Dean.jpg"
+            alt="Profile Picture"
+          />
+          <div class="username">Dean Impala</div>
+          <div class="timestamp">12 Sep</div>
+        </div>
+        <div class="post-content">
+          <div class="expandable-text">
+            <p>ငါ ဘာလို့ သရဲ မကြောက်တာလဲဆိုရင်🤭</p>
+          </div>
+          <img class="post-image" src="Images/Post7.jpg" alt="Post Image" />
+        </div>
+        <div class="post-actions">
+          <div class="like-button">
+            <i class="material-icons">favorite</i> Like
+          </div>
+          <div class="comment-button">
+            <button class="postbutton show-comments">
+              <i class="material-icons">comment</i> Comment
+            </button>
+          </div>
+          <div class="share-button">
+            <button class="postbutton share-post">
+              <i class="material-icons">share</i> Share
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="comments-container" style="display: none">
+        <div class="comment">
+          <legend>Sam W:</legend>
+          Please! Go touch some grass!
+        </div>
+        <div class="comment">
+          <legend>Alastair:</legend>
+          That's why your Mama dead
+        </div>
+        <div class="comment">
+          <legend>Dean Impala:</legend>
+          မရီရပါအရိုင်းအစိုင်း
+        </div>
+        <div class="comment-input">
+          <input
+            type="text"
+            class="new-comment"
+            placeholder="Add a comment..."
+          />
+          <button class="add-comment">Send</button>
+        </div>
+      </div>
+      <div class="popup">
+        <div class="share-head">
+          <span>Share Media</span>
+          <div class="close"><i class="fas fa-times"></i></div>
+        </div>
+        <div class="share-content">
+          <p>Share the post via</p>
+          <ul class="icons">
+            <a href="https://www.facebook.com"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="https://www.twitter.com"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="https://www.whatsapp.com"
+              ><i class="fab fa-whatsapp"></i
+            ></a>
+            <a href="https://www.telegram.org"
+              ><i class="fab fa-telegram"></i
+            ></a>
+          </ul>
+          <p>Or copy the link</p>
+          <div class="field">
+            <i class="fas fa-link"></i>
+            <input type="text" readonly value="spiritsaga.com/example" />
+            <button>Copy</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8 post content -->
+      <div class="post-container">
+        <div class="post-header">
+          <img
+            class="profile-picture"
+            src="Images/pf8.jpg"
+            alt="Profile Picture"
+          />
+          <div class="username">Alex</div>
+          <div class="timestamp">11 Sep</div>
+        </div>
+        <div class="post-content">
+          <div class="expandable-text">
+            <p>ညဖက် သရဲကြောက်လို့ကြောင်တွေခေါ်ထားတာ😱</p>
+          </div>
+
+          <img class="post-image" src="Images/Post8.jpg" alt="Post Image" />
+        </div>
+        <div class="post-actions">
+          <div class="like-button">
+            <i class="material-icons">favorite</i> Like
+          </div>
+          <div class="comment-button">
+            <button class="postbutton show-comments">
+              <i class="material-icons">comment</i> Comment
+            </button>
+          </div>
+          <div class="share-button">
+            <button class="postbutton share-post">
+              <i class="material-icons">share</i> Share
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="comments-container" style="display: none">
+        <div class="comment">
+          <legend>Aye Mya Hsu Mon:</legend>
+          🤣🤣🤣🤣
+        </div>
+        <div class="comment">
+          <legend>Lue Lue:</legend>
+          မြောင်မျက်လုံးမှာမီးတွေလင်းနေတယ်
+        </div>
+        <div class="comment-input">
+          <input
+            type="text"
+            class="new-comment"
+            placeholder="Add a comment..."
+          />
+          <button class="add-comment">Send</button>
+        </div>
+      </div>
+      <div class="popup">
+        <div class="share-head">
+          <span>Share Media</span>
+          <div class="close"><i class="fas fa-times"></i></div>
+        </div>
+        <div class="share-content">
+          <p>Share the post via</p>
+          <ul class="icons">
+            <a href="https://www.facebook.com"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="https://www.twitter.com"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="https://www.whatsapp.com"
+              ><i class="fab fa-whatsapp"></i
+            ></a>
+            <a href="https://www.telegram.org"
+              ><i class="fab fa-telegram"></i
+            ></a>
+          </ul>
+          <p>Or copy the link</p>
+          <div class="field">
+            <i class="fas fa-link"></i>
+            <input type="text" readonly value="spiritsaga.com/example" />
+            <button>Copy</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9 post content -->
+      <div class="post-container">
+        <div class="post-header">
+          <img
+            class="profile-picture"
+            src="Images/pf9.jpg"
+            alt="Profile Picture"
+          />
+          <div class="username">Luiji</div>
+          <div class="timestamp">10 Sep</div>
+        </div>
+        <div class="post-content">
+          <div class="expandable-text">
+            <p>?</p>
+          </div>
+          <img class="post-image" src="Images/Post9.jpg" alt="Post Image" />
+        </div>
+        <div class="post-actions">
+          <div class="like-button">
+            <i class="material-icons">favorite</i> Like
+          </div>
+          <div class="comment-button">
+            <button class="postbutton show-comments">
+              <i class="material-icons">comment</i> Comment
+            </button>
+          </div>
+          <div class="share-button">
+            <button class="postbutton share-post">
+              <i class="material-icons">share</i> Share
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="comments-container" style="display: none">
+        <div class="comment">
+          <legend>Kaung Thant Zaw:</legend>
+          မယုံဘူးသတ်သေပြ
+        </div>
+        <div class="comment">
+          <legend>Chan Chan:</legend>
+          saveထားလိုက်ပီ
+        </div>
+        <div class="comment">
+          <legend>Aye Mya Hsu Mon:</legend>
+          အရမ်းးးး
+        </div>
+        <div class="comment-input">
+          <input
+            type="text"
+            class="new-comment"
+            placeholder="Add a comment..."
+          />
+          <button class="add-comment">Send</button>
+        </div>
+      </div>
+      <div class="popup">
+        <div class="share-head">
+          <span>Share Media</span>
+          <div class="close"><i class="fas fa-times"></i></div>
+        </div>
+        <div class="share-content">
+          <p>Share the post via</p>
+          <ul class="icons">
+            <a href="https://www.facebook.com"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="https://www.twitter.com"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="https://www.whatsapp.com"
+              ><i class="fab fa-whatsapp"></i
+            ></a>
+            <a href="https://www.telegram.org"
+              ><i class="fab fa-telegram"></i
+            ></a>
+          </ul>
+          <p>Or copy the link</p>
+          <div class="field">
+            <i class="fas fa-link"></i>
+            <input type="text" readonly value="spiritsaga.com/example" />
+            <button>Copy</button>
+          </div>
+        </div>
+      </div>
+
+      <!--10 post content -->
+      <div class="post-container">
+        <div class="post-header">
+          <img
+            class="profile-picture"
+            src="Images/pf10.jpg"
+            alt="Profile Picture"
+          />
+          <div class="username">Aye Mya Hsu Mon</div>
+          <div class="timestamp">10 Sep</div>
+        </div>
+        <div class="post-content">
+          <div class="expandable-text">
+            <p>အမေ - ဒီအိမ်မှာနေရင် ဒီအိမ်အလုပ်လုပ်ရမယ် အိမ်ကသရဲ -</p>
+          </div>
+          <img class="post-image" src="Images/Post10.jpg" alt="Post Image" />
+        </div>
+        <div class="post-actions">
+          <div class="like-button">
+            <i class="material-icons">favorite</i> Like
+          </div>
+          <div class="comment-button">
+            <button class="postbutton show-comments">
+              <i class="material-icons">comment</i> Comment
+            </button>
+          </div>
+          <div class="share-button">
+            <button class="postbutton share-post">
+              <i class="material-icons">share</i> Share
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="comments-container" style="display: none">
+        <div class="comment">
+          <legend>Nandar Htet:</legend>
+          🤣🤣🤣🤣
+        </div>
+        <div class="comment">
+          <legend>Poe:</legend>
+          အိမ်ကအမေအတိုင်းပဲ🥹
+        </div>
+        <div class="comment-input">
+          <input
+            type="text"
+            class="new-comment"
+            placeholder="Add a comment..."
+          />
+          <button class="add-comment">Send</button>
+        </div>
+      </div>
+      <div class="popup">
+        <div class="share-head">
+          <span>Share Media</span>
+          <div class="close"><i class="fas fa-times"></i></div>
+        </div>
+        <div class="share-content">
+          <p>Share the post via</p>
+          <ul class="icons">
+            <a href="https://www.facebook.com"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="https://www.twitter.com"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="https://www.whatsapp.com"
+              ><i class="fab fa-whatsapp"></i
+            ></a>
+            <a href="https://www.telegram.org"
+              ><i class="fab fa-telegram"></i
+            ></a>
+          </ul>
+          <p>Or copy the link</p>
+          <div class="field">
+            <i class="fas fa-link"></i>
+            <input type="text" readonly value="spiritsaga.com/example" />
+            <button>Copy</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Floating chat box-->
+    <div class="chatbox-wrapper">
+      <div class="chatbox-toggle">
+        <i class="fa-brands fa-rocketchat"></i>
+      </div>
+      <div class="chatbox-message-wrapper">
+        <div class="chatbox-message-header">
+          <div class="chatbox-message-profile">
+            <img class="profile-picture" src="Images/johny.jpg" />
+            <div>
+              <h4 class="chatbox-message-name">Johny</h4>
+              <p class="chatbox-message-status">online</p>
+            </div>
+          </div>
+          <div class="chatbox-message-dropdown">
+            <i
+              class="bx bx-dots-vertical-rounded chatbox-message-dropdown-toggle"
+            ></i>
+            <ul class="chatbox-message-dropdown-menu"></ul>
+          </div>
+        </div>
+        <div class="chatbox-message-content">
+          <h4 class="chatbox-message-no-message">SEP 13,2023 AT 08:30 PM</h4>
+          <div class="chatbox-message-item sent">
+            <span class="chatbox-message-item-text">
+              Just received the contact file from Alan. What about we finished
+              the remaining part today?
+            </span>
+            <span class="chatbox-message-item-time">08:30</span>
+          </div>
+          <div class="chatbox-message-item received">
+            <span class="chatbox-message-item-text">
+              Good, I'll see you at 10.
+            </span>
+            <span class="chatbox-message-item-time">08:30</span>
+          </div>
+        </div>
+        <div class="chatbox-message-bottom">
+          <form action="#" class="chatbox-message-form">
+            <textarea
+              rows="1"
+              placeholder="Type a message..."
+              class="chatbox-message-input"
+            ></textarea>
+            <button type="submit" class="chatbox-message-submit">
+              <i class="fa-regular fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!--Footer here-->
+    <footer class="footer-distributed">
+      <div class="footer-left">
+        <h3>Spirit<span>Saga</span></h3>
+
+        <p class="footer-links">
+          <a href="index.html">Home</a>
+          |
+          <a href="Search.html">Search</a>
+          |
+          <a href="Community.html">Community</a>
+          |
+          <a href="About.html">About</a>
+        </p>
+
+        <p class="footer-company-name">
+          Copyright © 2023 <strong>Spirit_Saga</strong> All rights reserved
+        </p>
+      </div>
+
+      <div class="footer-center">
+        <div>
+          <i class="fa fa-map-marker"></i>
+          <p><span>GTC</span> Kyaukphyu</p>
+        </div>
+
+        <div>
+          <i class="fa fa-phone"></i>
+          <p>+95 999999</p>
+        </div>
+        <div>
+          <i class="fa fa-envelope"></i>
+          <p>
+            <a href="mailto:spiritsaga.gtc@gmail.com"
+              ><p>spiritsaga.gtc@gmail.com</p></a
+            >
+          </p>
+        </div>
+      </div>
+      <div class="footer-right">
+        <p class="footer-company-about">
+          <span>About the Website</span>
+          <strong>Spirit Saga</strong> is a Website where you can find more
+          about Floklore and History about supernatural creatures.
+        </p>
+        <div class="footer-icons">
+          <a
+            href="https://www.facebook.com/profile.php?id=100085089431388&mibextid=7cd5pb"
+            ><i class="fa fa-facebook"></i
+          ></a>
+          <a href="https://instagram.com/alexcl_24?utm"
+            ><i class="fa fa-instagram"></i
+          ></a>
+          <a href="https://www.tumblr.com/alexromera?source=share"
+            ><i class="fa fa-tumblr"></i
+          ></a>
+          <a href="https://twitter.com/Alexxx_Rrr?s=09"
+            ><i class="fa fa-twitter"></i
+          ></a>
+          <a href="https://youtube.com/@alexromera8339?si=KxEoqqXQ5qqmJo21"
+            ><i class="fa fa-youtube"></i
+          ></a>
+        </div>
+      </div>
+    </footer>
+    <script src="Script.js"></script>
+    <script src="JavaScript/Community.js"></script>
+  </body>
+</html>

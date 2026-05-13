@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spirt Saga | About</title>
+    <link
+      rel="stylesheet"
+      href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+    />
+    <link
+      href="http://fonts.googleapis.com/css?family=Cookie"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="icon" href="Images/SSIcon.png" type="image/jpg" />
+
+    <link rel="stylesheet" href="Style.css" />
+  </head>
+  <body>
+    <!-- Header Here -->
+    <nav class="navbar">
+      <div class="mobile-header">
+        <div class="logo">
+          <a href="index.html"
+            ><img src="Images/Spirit_Saga_Logo.png" alt="logo"
+          /></a>
+        </div>
+        <div class="menu-toggle">&#9776;</div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="Search.html">Search</a></li>
+        <li><a href="Community.html">Community</a></li>
+        <li><a href="About.html">About</a></li>
+      </ul>
+    </nav>
+
+    <!--Folklore description-->
+    <div class="decreption-about des-about-div">
+      <div class="size-desabout">
+        <img src="Images/open.png" alt="open" class="open" />
+        <p class="descript about-des">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          Our mission is to understand, inform and entertain users by building
+          the best communities, content, services and experiences.
+        </p>
+        <img src="Images/close.png" alt="close" class="close" />
+        <br /><br />
+      </div>
+    </div>
+
+    <!--Members here-->
+    <div class="member-container">
+      <!-- Member 1 -->
+      <div class="member" onclick="showBigMember(1)">
+        <img src="Images/member1.jpg" alt="Member 1" />
+        <h1>Khin Nyein Chan Lwin</h1>
+        <p class="leader-t">Leader</p>
+      </div>
+      <!-- Member 2 -->
+      <div class="member" onclick="showBigMember(2)">
+        <img src="Images/member2.jpg" alt="Member 2" />
+        <h1>Kaung Thant Zaw</h1>
+        <p class="coleader-t">Co-Leader</p>
+      </div>
+      <!-- Add more members as needed -->
+      <div class="member" onclick="showBigMember(3)">
+        <img src="Images/member3.jpg" alt="Member 3" />
+        <h1>Khin Moe Sett</h1>
+        <p class="presenter-t">Presenter</p>
+      </div>
+      <div class="member" onclick="showBigMember(4)">
+        <img src="Images/member4.jpg" alt="Member 4" />
+        <h1>Khin Sabae Oo</h1>
+        <p class="presenter-t">Presenter</p>
+      </div>
+      <div class="member" onclick="showBigMember(5)">
+        <img src="Images/member5.jpg" alt="Member 5" />
+        <h1>Phyo Zin Mar Htay</h1>
+        <p class="member-t">Member</p>
+      </div>
+      <div class="member" onclick="showBigMember(6)">
+        <img src="Images/member6.jpg" alt="Member 6" />
+        <h1>Naing Lin</h1>
+        <p class="member-t">Member</p>
+      </div>
+      <div class="member" onclick="showBigMember(7)">
+        <img src="Images/member7.jpg" alt="Member 7" />
+        <h1>Hla Myo Thwe</h1>
+        <p class="member-t">Member</p>
+      </div>
+      <div class="member" onclick="showBigMember(8)">
+        <img src="Images/member8.jpg" alt="Member 8" />
+        <h1>Aung Kaung Khant</h1>
+        <p class="member-t">Member</p>
+      </div>
+    </div>
+    <div class="big-member-member-container">
+      <!-- Big Member 1 -->
+      <div class="big-member" id="bigMember1">
+        <div class="member-big-card">
+          <div class="member-big-picture">
+            <img src="Images/member1.jpg" alt="Member-big Picture" />
+          </div>
+          <div class="member-big-info">
+            <h1>Khin Nyein Chan Lwin</h1>
+            <p>Leader</p>
+            <ul>
+              <li>Skills: HTML, CSS, JavaScript</li>
+              <li>School: GTC Kyaukphyu</li>
+              <li>Major: Information Technology</li>
+              <li>Year: Second Year</li>
+              <li>
+                Roles in project: <span>HTML</span> <span>CSS</span>
+                <span>JavaScript</span> <span>Designing</span>
+                <span>Data Collecting</span> <span>Responsive</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- Big Member 2 -->
+      <div class="big-member" id="bigMember2">
+        <div class="member-big-card">
+          <div class="member-big-picture">
+            <img src="Images/member2.jpg" alt="Member-big Picture" />
+          </div>
+          <div class="member-big-info">
+            <h1>Kaung Thant Zaw</h1>
+            <p>Co-Leader</p>
+            <ul>
+              <li>Skills: HTML, CSS, JavaScript</li>
+              <li>School: GTC Kyaukphyu</li>
+              <li>Major: Information Technology</li>
+              <li>Year: Second Year</li>
+              <li>
+                Roles in project: <span>HTML</span> <span>CSS</span>
+                <span>JavaScript</span> <span>Designing</span>
+                <span>Data Collecting</span> <span>Responsive</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- Add more big members as needed -->
+      <div class="big-member" id="bigMember3">
+        <div class="member-big-card">
+          <div class="member-big-picture">
+            <img src="Images/member3.jpg" alt="Member-big Picture" />
+          </div>
+          <div class="member-big-info">
+            <h1>Khin Moe Sett</h1>
+            <p>Presenter</p>
+            <ul>
+              <li>Skills: HTML, CSS</li>
+              <li>School: GTC Kyaukphyu</li>
+              <li>Major: Information Technology</li>
+              <li>Year: Second Year</li>
+              <li>
+                Roles in project: <span>Presenting</span> <span>HTML</span>
+                <span>CSS</span>
+                <span>Designing</span>
+                <span>Data Collecting</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="big-member" id="bigMember4">
+        <div class="member-big-card">
+          <div class="member-big-picture">
+            <img src="Images/member4.jpg" alt="Member-big Picture" />
+          </div>
+          <div class="member-big-info">
+            <h1>Khin Sabae Oo</h1>
+            <p>Presenter</p>
+            <ul>
+              <li>Skills: HTML, CSS</li>
+              <li>School: GTC Kyaukphyu</li>
+              <li>Major: Information Technology</li>
+              <li>Year: Second Year</li>
+              <li>
+                Roles in project: <span>Presenting</span> <span>HTML</span>
+                <span>CSS</span>
+                <span>Designing</span>
+                <span>Data Collecting</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="big-member" id="bigMember5">
+        <div class="member-big-card">
+          <div class="member-big-picture">
+            <img src="Images/member5.jpg" alt="Member-big Picture" />
+          </div>
+          <div class="member-big-info">
+            <h1>Phyo Zin Mar Htay</h1>
+            <p>Member</p>
+            <ul>
+              <li>Skills: HTML, CSS</li>
+              <li>School: GTC Kyaukphyu</li>
+              <li>Major: Information Technology</li>
+              <li>Year: Second Year</li>
+              <li>
+                Roles in project: <span>HTML</span>
+                <span>CSS</span>
+                <span>Designing</span>
+                <span>Data Collecting</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="big-member" id="bigMember6">
+        <div class="member-big-card">
+          <div class="member-big-picture">
+            <img src="Images/member6.jpg" alt="Member-big Picture" />
+          </div>
+          <div class="member-big-info">
+            <h1>Naing Lin</h1>
+            <p>Member</p>
+            <ul>
+              <li>Skills: HTML, CSS</li>
+              <li>School: GTC Kyaukphyu</li>
+              <li>Major: Information Technology</li>
+              <li>Year: Second Year</li>
+              <li>
+                Roles in project: <span>HTML</span>
+                <span>CSS</span>
+                <span>Designing</span>
+                <span>Data Collecting</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="big-member" id="bigMember7">
+        <div class="member-big-card">
+          <div class="member-big-picture">
+            <img src="Images/member7.jpg" alt="Member-big Picture" />
+          </div>
+          <div class="member-big-info">
+            <h1>Hla Myo Thwe</h1>
+            <p>Member</p>
+            <ul>
+              <li>Skills:</li>
+              <li>School: GTC Kyaukphyu</li>
+              <li>Major: Information Technology</li>
+              <li>Year: Second Year</li>
+              <li>Roles in project:</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="big-member" id="bigMember8">
+        <div class="member-big-card">
+          <div class="member-big-picture">
+            <img src="Images/member8.jpg" alt="Member-big Picture" />
+          </div>
+          <div class="member-big-info">
+            <h1>Aung Kaung Khant</h1>
+            <p>Member</p>
+            <ul>
+              <li>Skills:</li>
+              <li>School: GTC Kyaukphyu</li>
+              <li>Major: Information Technology</li>
+              <li>Year: Second Year</li>
+              <li>Roles in project:</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Tools-->
+    <div class="toolsdiv">
+      <fieldset class="tools-field">
+        <legend>Tools We Used In Project</legend>
+        <div class="tools-container">
+          <div class="tool">
+            <a href="https://code.visualstudio.com/" target="_blank">
+              <img src="Images/tool1.png" />
+              <h2>VS Code</h2>
+            </a>
+          </div>
+
+          <div class="tool">
+            <a
+              href="https://www.adobe.com/sg/products/dreamweaver.html"
+              target="_blank"
+            >
+              <img src="Images/tool2.png" />
+              <h2>Dreamweaver</h2>
+            </a>
+          </div>
+
+          <div class="tool">
+            <a href="https://chat.openai.com/" target="_blank">
+              <img src="Images/tool3.png" />
+              <h2>ChatGPT</h2>
+            </a>
+          </div>
+
+          <div class="tool">
+            <a href="https://www.youtube.com/" target="_blank">
+              <img src="Images/tool4.png" />
+              <h2>YouTube</h2>
+            </a>
+          </div>
+
+          <div class="tool">
+            <a href="https://www.wikipedia.org/" target="_blank">
+              <img src="Images/tool5.png" />
+              <h2>Wikipedia</h2>
+            </a>
+          </div>
+
+          <!-- Repeat the above divs for additional tools -->
+        </div>
+      </fieldset>
+    </div>
+
+    <h1 class="thanks">Thanks you for enjoying our Website</h1>
+
+    <div class="about-pic">
+      <div class="photo-about">
+        <img src="Images/group.jpg" alt="" />
+      </div>
+    </div>
+
+    <!--Footer here-->
+    <footer class="footer-distributed">
+      <div class="footer-left">
+        <h3>Spirit<span>Saga</span></h3>
+
+        <p class="footer-links">
+          <a href="index.html">Home</a>
+          |
+          <a href="Search.html">Search</a>
+          |
+          <a href="Community.html">Community</a>
+          |
+          <a href="About.html">About</a>
+        </p>
+
+        <p class="footer-company-name">
+          Copyright © 2023 <strong>Spirit_Saga</strong> All rights reserved
+        </p>
+      </div>
+
+      <div class="footer-center">
+        <div>
+          <i class="fa fa-map-marker"></i>
+          <p><span>GTC</span> Kyaukphyu</p>
+        </div>
+
+        <div>
+          <i class="fa fa-phone"></i>
+          <p>+95 999999</p>
+        </div>
+        <div>
+          <i class="fa fa-envelope"></i>
+          <p>
+            <a href="mailto:spiritsaga.gtc@gmail.com"
+              ><p>spiritsaga.gtc@gmail.com</p></a
+            >
+          </p>
+        </div>
+      </div>
+      <div class="footer-right">
+        <p class="footer-company-about">
+          <span>About the Website</span>
+          <strong>Spirit Saga</strong> is a Website where you can find more
+          about Floklore and History about supernatural creatures.
+        </p>
+        <div class="footer-icons">
+          <a
+            href="https://www.facebook.com/profile.php?id=100085089431388&mibextid=7cd5pb"
+            ><i class="fa fa-facebook"></i
+          ></a>
+          <a href="https://instagram.com/alexcl_24?utm"
+            ><i class="fa fa-instagram"></i
+          ></a>
+          <a href="https://www.tumblr.com/alexromera?source=share"
+            ><i class="fa fa-tumblr"></i
+          ></a>
+          <a href="https://twitter.com/Alexxx_Rrr?s=09"
+            ><i class="fa fa-twitter"></i
+          ></a>
+          <a href="https://youtube.com/@alexromera8339?si=KxEoqqXQ5qqmJo21"
+            ><i class="fa fa-youtube"></i
+          ></a>
+        </div>
+      </div>
+    </footer>
+    <!--Script Here-->
+    <script src="Script.js"></script>
+    <script src="JavaScript/About.js"></script>
+  </body>
+</html>
